@@ -3,7 +3,7 @@ const placesContainer = document.querySelector('.places__list')
 function createCard(cardName, cardImageLink, deleteCard) {
 	const cardTemplate = document.querySelector('#card-template').content
 	const cardElement = cardTemplate.querySelector('.card').cloneNode(true)
-	const cardElementImage = cardElement.querySelector('.card__image')
+	let cardElementImage = cardElement.querySelector('.card__image')
 
 	cardElementImage.setAttribute('src', cardImageLink)
 	cardElementImage.setAttribute('alt', cardName)
@@ -26,6 +26,6 @@ function addCard(cardElement) {
 }
 
 initialCards.forEach(card => {
-	const newCard = createCard(card.name, card.link)
+	const newCard = createCard(card.name, card.link, deleteCard)
 	addCard(newCard)
 })
