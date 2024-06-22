@@ -1,6 +1,6 @@
 const placesContainer = document.querySelector('.places__list')
 
-function createCard(cardName, cardImageLink) {
+function createCard(cardName, cardImageLink, deleteCard) {
 	const cardTemplate = document.querySelector('#card-template').content
 	const cardElement = cardTemplate.querySelector('.card').cloneNode(true)
 	const cardElementImage = cardElement.querySelector('.card__image')
