@@ -1,5 +1,3 @@
-import { openImagePopup } from './modal'
-
 export function deleteCard(cardElement) {
 	cardElement.remove()
 }
