@@ -14,16 +14,16 @@
 			<header class="header page__section">
 				<img
 					src="<%=require('./images/logo.svg')%>"
-					alt="Логотип проекта масто"
+					alt="Логотип проекта место"
 					class="logo header__logo"
 				/>
 			</header>
 			<main class="content">
 				<section class="profile page__section">
-					<div
+					<img
 						class="profile__image"
-						style="background-image: url(<%=require('./images/avatar.jpg')%>)"
-					></div>
+						src="<%=require('./images/avatar.jpg')%>" 
+					></img>
 					<div class="profile__info">
 						<h1 class="profile__title">Жак-Ив Кусто</h1>
 						<button class="profile__edit-button" type="button"></button>
@@ -45,18 +45,30 @@
 					<form class="popup__form" name="edit-profile">
 						<input
 							type="text"
+							pattern="^[a-zA-Zа-яА-ЯёЁ\- ]+$"
 							name="name"
 							class="popup__input popup__input_type_name"
+							id="name-input"
 							placeholder="Имя"
+							minlength="2"
+							maxlength="40"
 							required
+							data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
 						/>
+						<span class="name-input-error"></span>
 						<input
 							type="text"
+							pattern="^[a-zA-Zа-яА-ЯёЁ\- ]+$"
 							name="description"
 							class="popup__input popup__input_type_description"
+							id="description-input"
 							placeholder="Занятие"
+							minlength="2"
+							maxlength="200"
 							required
+							data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
 						/>
+						<span class="description-input-error"></span>
 						<button type="submit" class="button popup__button">
 							Сохранить
 						</button>
@@ -70,18 +82,26 @@
 					<form class="popup__form" name="new-place">
 						<input
 							type="text"
+							pattern="^[a-zA-Zа-яА-ЯёЁ\- ]+$"
 							name="place-name"
 							class="popup__input popup__input_type_card-name"
+							id="card-name-input"
 							placeholder="Название"
+							minlength="2"
+							maxlength="30"
 							required
+							data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
 						/>
+						<span class="card-name-input-error"></span>
 						<input
 							type="url"
 							name="link"
+							id="url-input"
 							class="popup__input popup__input_type_url"
 							placeholder="Ссылка на картинку"
 							required
 						/>
+						<span class="url-input-error"></span>
 						<button type="submit" class="button popup__button">
 							Сохранить
 						</button>
@@ -103,7 +123,10 @@
 				<button type="button" class="card__delete-button"></button>
 				<div class="card__description">
 					<h2 class="card__title"></h2>
-					<button type="button" class="card__like-button"></button>
+					<div class="card__like">
+						<button type="button" class="card__like-button"></button>
+						<span class='card__like-count'></span>
+					</div>
 				</div>
 			</li>
 		</template>
