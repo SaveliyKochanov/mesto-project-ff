@@ -1,0 +1,12 @@
+.profile__image_edit-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 30px;
+	height: 30px;
+	display: hidden;
+	opacity: 0;
+	transition: opacity 0.3s;
+	z-index: 2;
+}

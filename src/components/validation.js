@@ -6,8 +6,8 @@ const showInputError = (
 	validationConfig
 ) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
-	inputElement.classList.add(validationConfig.inputErrorClass) //это инпут
-	errorElement.textContent = errorMessage //это спан
+	inputElement.classList.add(validationConfig.inputErrorClass) 
+	errorElement.textContent = errorMessage 
 	errorElement.classList.add(validationConfig.errorClass)
 }
 

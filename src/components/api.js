@@ -11,19 +11,19 @@ const getResponse = res => {
 	}
 	return Promise.reject(`Ошибка ${res.status}`)
 }
-export const getUserData = () => {
+export const getUserDataApi = () => {
 	return fetch(`${config.baseUrl}/users/me`, {
 		headers: config.headers,
 	}).then(getResponse)
 }
 
-export const getInitialsCards = () => {
+export const getInitialsCardsApi = () => {
 	return fetch(`${config.baseUrl}/cards`, {
 		headers: config.headers,
 	}).then(getResponse)
 }
 
-export const addNewCard = (name, link) => {
+export const addNewCardApi = (name, link) => {
 	return fetch(`${config.baseUrl}/cards`, {
 		method: 'POST',
 		headers: config.headers,
@@ -34,8 +34,8 @@ export const addNewCard = (name, link) => {
 	}).then(getResponse)
 }
 
-export const editUserData = (name, about) => {
-	fetch(`${config.baseUrl}/users/me`, {
+export const editUserDataApi = (name, about) => {
+	return fetch(`${config.baseUrl}/users/me`, {
 		method: 'PATCH',
 		headers: config.headers,
 		body: JSON.stringify({
@@ -45,7 +45,7 @@ export const editUserData = (name, about) => {
 	}).then(getResponse)
 }
 
-export const setLike = (cardId, isLiked) => {
+export const setLikeApi = (cardId, isLiked) => {
 	const method = isLiked ? 'DELETE' : 'PUT'
 
 	return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
@@ -58,5 +58,15 @@ export const deleteCardApi = cardId => {
 	fetch(`${config.baseUrl}/cards/${cardId}`, {
 		method: 'DELETE',
 		headers: config.headers,
+	}).then(getResponse)
+}
+
+export const updateAvatarApi = avatar => {
+	return fetch(`${config.baseUrl}/users/me/avatar`, {
+		method: 'PATCH',
+		headers: config.headers,
+		body: JSON.stringify({
+			avatar,
+		}),
 	}).then(getResponse)
 }
