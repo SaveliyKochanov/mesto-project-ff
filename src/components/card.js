@@ -1,9 +1,13 @@
 import { deleteCardApi, setLikeApi } from './api'
 
 export function deleteCard(cardElement, cardId) {
-	cardElement.remove()
 	deleteCardApi(cardId)
-	console.log(deleteCardApi(cardId))
+		.then(() => {
+			cardElement.remove()
+		})
+		.catch(err => {
+			console.log(`Ошибка при удалении карточки: ${err}`)
+		})
 }
 
 export function setLikeToCard(likeButton, cardId, likesCount) {

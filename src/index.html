@@ -14,7 +14,7 @@
 			<main class="content">
 				<section class="profile page__section">
 					<div class="profile__image" style="background-image: url(<%=require('./images/avatar.jpg')%>)">
-						<img class="profile__image_edit-logo" src="<%=require('./images/edit-avatar.svg')%>" alt="Иконка редактирования фото профиля" />
+						<img class="profile__image_edit-logo" src="<%=require('./images/edit-avatar.svg')%>" alt="Иконка редактирования аватара профиля" />
 					</div>
 					<div class="profile__info">
 						<h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -34,7 +34,7 @@
 				<div class="popup__content">
 					<button type="button" class="popup__close"></button>
 					<h3 class="popup__title">Редактировать профиль</h3>
-					<form class="popup__form" name="edit-profile">
+					<form class="popup__form" name="edit-profile" novalidate>
 						<div class="popup__input-elements">
 							<div class="input-element">
 								<input type="text" pattern="^[a-zA-Zа-яА-ЯёЁ\- ]+$" name="name" class="popup__input popup__input_type_name" id="name-input" placeholder="Имя" minlength="2" maxlength="40" required data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" />
@@ -66,7 +66,7 @@
 				<div class="popup__content">
 					<button type="button" class="popup__close"></button>
 					<h3 class="popup__title">Новое место</h3>
-					<form class="popup__form" name="new-place">
+					<form class="popup__form" name="new-place" novalidate>
 						<div class="popup__input-elements">
 							<div class="input-element">
 								<input
@@ -105,7 +105,7 @@
 				<div class="popup__content">
 					<button type="button" class="popup__close"></button>
 					<h3 class="popup__title">Обновить аватар</h3>
-					<form class="popup__form" name="edit-avatar">
+					<form class="popup__form" name="edit-avatar" novalidate>
 						<input type="url" name="avatar-link" class="popup__input popup__input_type_avatar" id="avatar-input" placeholder="Ссылка на аватарку" required />
 						<span class="avatar-input-error"></span>
 						<button type="submit" class="button popup__button">
