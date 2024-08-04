@@ -1,4 +1,5 @@
 {
 	"html.format.wrapLineLength": 0,
-	"editor.tabSize": 2
+	"editor.tabSize": 2,
+	"cSpell.words": ["predeploy"]
 }
