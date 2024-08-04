@@ -55,7 +55,7 @@ export const setLikeApi = (cardId, isLiked) => {
 }
 
 export const deleteCardApi = cardId => {
-	fetch(`${config.baseUrl}/cards/${cardId}`, {
+	return fetch(`${config.baseUrl}/cards/${cardId}`, {
 		method: 'DELETE',
 		headers: config.headers,
 	}).then(getResponse)

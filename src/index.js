@@ -30,7 +30,7 @@ const profileAvatar = document.querySelector('.profile__image')
 const popupImage = document.querySelector('.popup_type_image')
 const popupImageElement = popupImage.querySelector('.popup__image')
 const popupCaptionElement = popupImage.querySelector('.popup__caption')
-const currentUserId = null
+let currentUserId = null
 
 const validationConfig = {
 	formSelector: '.popup__form',
@@ -142,7 +142,7 @@ function addCard(cardElement, toStart) {
 
 Promise.all([getUserDataApi(), getInitialsCardsApi()])
 	.then(([userData, initialCards]) => {
-		const currentUserId = userData._id
+		currentUserId = userData._id
 		profileTitle.textContent = userData.name
 		profileDescription.textContent = userData.about
 		profileAvatar.style.backgroundImage = `url(${userData.avatar})`

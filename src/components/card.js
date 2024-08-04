@@ -33,13 +33,6 @@ export function createCard(cardId, cardName, cardImageLink, deleteCard, likes, s
 	likesCount.textContent = likes.length
 
 	const deleteButton = cardElement.querySelector('.card__delete-button')
-	if (ownerId !== userId) {
-		deleteButton.remove()
-	} else {
-		deleteButton.addEventListener('click', () => {
-			deleteCard(cardElement, cardId)
-		})
-	}
 
 	cardElementImage.addEventListener('click', () => {
 		openImagePopup(cardImageLink, cardName)
@@ -53,6 +46,15 @@ export function createCard(cardId, cardName, cardImageLink, deleteCard, likes, s
 	const userHasLiked = likes.some(like => like._id === userId)
 	if (userHasLiked) {
 		likeButton.classList.add('card__like-button_is-active')
+	}
+
+	if (ownerId !== userId) {
+		console.log('Removing delete button')
+		deleteButton.remove()
+	} else {
+		deleteButton.addEventListener('click', () => {
+			deleteCard(cardElement, cardId)
+		})
 	}
 
 	return cardElement
